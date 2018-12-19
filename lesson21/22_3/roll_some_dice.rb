@@ -19,7 +19,12 @@ end
 
 # С помощью мтеода целого числа times запускаем цикл, который заданное число раз
 # повторяет бросок кубика.
+result = 0
 number.times do
   show_rolling_dice
-  puts rand(6) + 1
+rand_num = rand(6) + 1
+  puts rand_num
+  result += rand_num
 end
+
+puts "Сумма чисел: #{result}"
