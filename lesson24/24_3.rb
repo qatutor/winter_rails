@@ -20,10 +20,4 @@ end
 
 check_variable($a)
 check_variable(b)
-#check_variable(c)
-begin
-    puts "The variable c is defined." if defined?(c)
-  puts "and here"
-rescue NameError => error
-  puts "The variable c is not defined."
-end
+check_variable(c)

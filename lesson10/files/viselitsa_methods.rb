@@ -65,32 +65,11 @@ end
 def check_input(user_input, letters, good_letters, bad_letters)
   # Если введенная буква уже есть в списке «хороших» или «плохих» сходу
   # вернем 0, так как ничего не изменилось, игра продолжится.
-  strange_words = ['е', 'ё', 'й', 'и']
-  puts "good letters #{good_letters}"
-
   if good_letters.include?(user_input) || bad_letters.include?(user_input)
     return 0
   end
 
-  if ((user_input.include? 'e') || (user_input.include? 'ё')) && ((letters.include? 'e') || (letters.include? 'ё'))
-      good_letters << user_input
-
-    if good_letters.size == letters.size
-      return 1
-    else
-      return 0
-    end
-
-  elsif ((user_input.include? 'и') || (user_input.include? 'й')) && ((letters.include? 'и') || (letters.include? 'й'))
-      good_letters << user_input
-
-    if good_letters.size == letters.size
-      return 1
-    else
-      return 0
-    end
-
-  elsif letters.include? user_input
+  if letters.include? user_input
     # Если в слове есть буква запишем её в массив «хороших» букв
     good_letters << user_input
 
@@ -112,7 +91,7 @@ def check_input(user_input, letters, good_letters, bad_letters)
     # Таким образом, letters.uniq.sort содержит все уникальные буквы слова в
     # алфавитном порядке. Например, если слово было «молоко», то массив будет
     # такой: ["к", "л", "м", "о"].
-    if good_letters.size == letters.size
+    if good_letters.uniq.sort == letters.uniq.sort
       # Если буквы в получившемся массиве совпадают с буквами в массиве
       # отгаданных букв (отсортированном), то это означает, что слово отгадано
       # полностью.

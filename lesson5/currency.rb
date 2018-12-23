@@ -2,19 +2,19 @@ puts "Курс доллара: "
 index = gets.to_f
 
 puts "Сколько у вас рублей?"
-rub = gets.to_f
+rub_in_case = gets.to_f
 
 puts "Сколько у вас долларов?"
-dol = gets.to_f
+dol_in_case = gets.to_f
 
-convert_rub_to_dol = (rub / index)
-difference = (convert_rub_to_dol - dol)
-puts "dif #{difference}"
+dol = rub_in_case / index
 
-if difference == 0
+dif_in_dol = dol_in_case - dol
+
+if dif_in_dol >= 0 && dif_in_dol < 0.001
   puts "Ваш портфель сбалансирован"
-elsif difference > 0
-  puts "Вам надо продать #{(difference/2).round(2)} $"
+elsif dif_in_dol > 0
+  puts "Вам надо продать #{(dif_in_dol/2).round(2)} $"
 else
-  puts "Вам надо докупить #{(difference.abs/2).round(2)} $"
+  puts "Вам надо докупить #{(dif_in_dol/2).round(2).abs} $"
 end

@@ -27,7 +27,7 @@ comp_choice = rand(0..3)
 puts "Компьютер выбрал: " + comp_choice.to_s
 
 output_result = get_win_result(user_choice, comp_choice)
->>>
+
 if output_result == 1
   puts "Вы победили"
 elsif output_result == 2

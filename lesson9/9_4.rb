@@ -23,6 +23,10 @@ def sklonenie(number, krokodil, krokodila, krokodilov)
   # Так как склонение определяется последней цифрой в числе, вычислим остаток
   # от деления числа number на 10
   ostatok = number % 100
+  if ostatok >= 11 && ostatok <=14
+    return krokodilov
+  end
+
   # Для 1 — именительный падеж (Кто?/Что? — крокодил)
   if ostatok == 1
     return krokodil
