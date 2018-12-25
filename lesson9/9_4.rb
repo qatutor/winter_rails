@@ -20,22 +20,31 @@ def sklonenie(number, krokodil, krokodila, krokodilov)
     # считать, что нас это устроит, просто продолжаем как будто он нулевой.
     number = 0
   end
-  # Так как склонение определяется последней цифрой в числе, вычислим остаток
-  # от деления числа number на 10
-  ostatok = number % 100
-  if ostatok >= 11 && ostatok <=14
+
+  #! fixed bug
+  ostatok_by_100 = number % 100
+
+  #! fixed bug check range 11-14
+  if (number >= 11 && number <=14) || (ostatok_by_100 >= 11 && ostatok_by_100 <=14)
     return krokodilov
   end
+  # Так как склонение определяется последней цифрой в числе, вычислим остаток
+  # от деления числа number на 10
+  ostatok = number % 10
 
   # Для 1 — именительный падеж (Кто?/Что? — крокодил)
   if ostatok == 1
     return krokodil
+  end
+
   # Для 2-4 — родительный падеж (2 Кого?/Чего? — крокодилов)
-  elsif ostatok >= 2 && ostatok <= 4
+  if ostatok >= 2 && ostatok <= 4
     return krokodila
+  end
+
   # 5-9 или ноль — родительный падеж и множественное число (8 Кого?/Чего? —
   # крокодилов)
-  else
+  if (ostatok >= 5 && ostatok <= 9) || ostatok == 0
     return krokodilov
   end
 end
