@@ -1,10 +1,7 @@
 def get_win_result(user_choice, comp_choice)
   combine_user_comp_choices = [user_choice, comp_choice]
   #check when draw
-  if combine_user_comp_choices == [0, 0] ||
-     combine_user_comp_choices == [1, 1] ||
-     combine_user_comp_choices == [2, 2] ||
-     combine_user_comp_choices == [3, 3]
+  if user_choice == comp_choice
     return 3
   #check only when user win
   elsif combine_user_comp_choices == [0, 1] ||
