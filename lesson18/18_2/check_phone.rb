@@ -1,7 +1,7 @@
 puts "Введите номер:"
 data = gets.chomp
 
-matcher = /\A\+?\d([() -]*\d){9,25}\z/
+matcher = /^\+?\d([() -]*\d){5,25}$/
 res = matcher =~ data
 
 if  res == 0
@@ -9,6 +9,3 @@ if  res == 0
 else
   puts "Not phone number"
 end
-
-
-

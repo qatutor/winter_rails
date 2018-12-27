@@ -14,5 +14,5 @@ end
 
 comp_advice = movie_list.sample
 
-puts "Recommended movie is:  #{comp_advice.get_movie_name}"
+puts "Recommended movie is:  #{comp_advice.movie_name}"
 puts "The producer is:  #{comp_advice.get_producer_name}"

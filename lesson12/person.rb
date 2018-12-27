@@ -29,7 +29,7 @@ class Person
   end
 
   def get_favourite_movie
-    @favourite_movie.get_movie_name
+    @favourite_movie.movie_name
   end
 
 end
