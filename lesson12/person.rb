@@ -3,7 +3,7 @@ class Person
   def initialize(first_name, last_name, age)
     @first_name = first_name
     @last_name = last_name
-    @age = age
+    @year = age
     @favourite_movie = nil
   end
 
@@ -17,7 +17,7 @@ class Person
   end
 
   def what_age
-    if @age > 60
+    if @year > 60
       return "Пожилой"
     else
       return "Молодой"

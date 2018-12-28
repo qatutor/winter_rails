@@ -1,10 +1,22 @@
 class Items
   DIR_PATH = __dir__ + '/data/'
-  attr_accessor :item_name, :item_type, :temp_max, :temp_min
+  attr_accessor :item_name, :item_type, :temp_max, :temp_min, :files
 
   def show_all_items
     puts "Вам сейчас доступны вещи из списка:"
-    #some code
+    get_files_in_dir
+    get_all_items_by(:item_name)
+  end
+
+  def get_files_in_dir
+    @files = Dir.glob(DIR_PATH + '*.txt')
+  end
+
+  def get_all_items_by(attribute_name)
+    @files.each do |file_path|
+      file_info = File.readlines(file_path, chomp:true)
+      puts "#{eval(file_info[0])[attribute_name]}"
+    end
   end
 
   def add_new_item?
@@ -22,10 +34,7 @@ class Items
   end
 
   def add_info_to_file(file, item_name, item_type, temp_max, temp_min)
-    file.puts(item_name)
-    file.puts(item_type)
-    file.puts(temp_max)
-    file.puts(temp_min)
+    file.puts({item_name: item_name, item_type: item_type, temp_max: temp_max, temp_min: temp_min})
   end
 
   def enter_info
@@ -52,7 +61,6 @@ class Items
 
   def add_new_item
     enter_info
-    #create a new file with name as an item name
     file = create_new_file(item_name)
     add_info_to_file(file, item_name, item_type, temp_max, temp_min)
   end

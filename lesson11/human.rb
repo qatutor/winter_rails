@@ -3,7 +3,7 @@ class Human
   def initialize(first_name, last_name, age)
     @first_name = first_name
     @last_name = last_name
-    @age = age
+    @year = age
   end
 
   def print_name
@@ -16,7 +16,7 @@ class Human
   end
 
   def what_age
-    if @age > 60
+    if @year > 60
       return "Old person"
     else
       return "Young person"
