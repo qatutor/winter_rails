@@ -7,12 +7,13 @@ class WordReader
   end
 
   def read_from_file(file_name)
-    return nil if !File.exist?(file_name)
-
+    nil if !File.exist?(file_name)
+=begin
     f = File.new(file_name, "r:UTF-8")
     lines = f.readlines
     f.close
-
+=end
+    lines = File.readlines(file_name)
     lines.sample.chomp
   end
 end
