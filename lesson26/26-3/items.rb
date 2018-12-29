@@ -1,21 +1,34 @@
 class Items
   DIR_PATH = __dir__ + '/data/'
-  attr_accessor :item_name, :item_type, :temp_max, :temp_min, :files
+  attr_accessor :item_name, :item_type, :temp_max, :temp_min, :files_paths
 
   def show_all_items
     puts "Вам сейчас доступны вещи из списка:"
     get_files_in_dir
-    get_all_items_by(:item_name)
+    print_all_items_by(:item_name)
   end
 
   def get_files_in_dir
-    @files = Dir.glob(DIR_PATH + '*.txt')
+    @files_paths = Dir.glob(DIR_PATH + '*.txt')
   end
 
-  def get_all_items_by(attribute_name)
-    @files.each do |file_path|
+  def print_all_items_by(attribute_name)
+    loop_through_all_files_info do |file_info_hash|
+      puts file_info_hash[attribute_name]
+    end
+=begin
+    @files_paths.each do |file_path|
       file_info = File.readlines(file_path, chomp:true)
       puts "#{eval(file_info[0])[attribute_name]}"
+    end
+=end
+  end
+
+  def loop_through_all_files_info
+    @files_paths.each do |file_path|
+      file_info = File.readlines(file_path, chomp:true) # file_info = [{info}]
+      file_info_hash = eval(file_info[0]) # file_info_hash = {info}
+      yield(file_info_hash) if block_given?
     end
   end
 
@@ -63,5 +76,13 @@ class Items
     enter_info
     file = create_new_file(item_name)
     add_info_to_file(file, item_name, item_type, temp_max, temp_min)
+  end
+
+  def system_decision(temp)
+     loop_through_all_files_info do |files_info_hash|
+       if temp >= files_info_hash[:temp_min] && temp <= files_info_hash[:temp_max]
+         puts "#{files_info_hash[:item_name]} (#{files_info_hash[:item_type]}) #{files_info_hash[:temp_min]}..#{files_info_hash[:temp_max]}"
+       end
+     end
   end
 end
