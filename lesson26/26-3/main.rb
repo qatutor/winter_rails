@@ -1,5 +1,4 @@
 require_relative 'items'
-require_relative 'forecast'
 
 puts "Программа запущена...."
 items = Items.new

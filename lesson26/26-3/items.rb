@@ -4,7 +4,6 @@ class Items
 
   def show_all_items
     puts "Вам сейчас доступны вещи из списка:"
-    get_files_in_dir
     print_all_items_by(:item_name)
   end
 
@@ -16,15 +15,10 @@ class Items
     loop_through_all_files_info do |file_info_hash|
       puts file_info_hash[attribute_name]
     end
-=begin
-    @files_paths.each do |file_path|
-      file_info = File.readlines(file_path, chomp:true)
-      puts "#{eval(file_info[0])[attribute_name]}"
-    end
-=end
   end
 
   def loop_through_all_files_info
+    get_files_in_dir
     @files_paths.each do |file_path|
       file_info = File.readlines(file_path, chomp:true) # file_info = [{info}]
       file_info_hash = eval(file_info[0]) # file_info_hash = {info}
