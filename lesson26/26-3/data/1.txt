@@ -1,2 +1,0 @@
-{:item_name=>"1", :item_type=>"1", :temp_max=>1, :temp_min=>1}
-{:item_name=>"1", :item_type=>"1", :temp_max=>1, :temp_min=>1}
