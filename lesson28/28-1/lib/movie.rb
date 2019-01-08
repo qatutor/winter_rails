@@ -1,9 +1,11 @@
 require_relative 'product'
 
 class Movie < Product
+  attr_writer :movie_year, :director, :movie_name
+
   def self.from_file(file_path)
     file_info = File.readlines(file_path, chomp:true)
-    Movie.new({name:'movie', price: file_info[4].to_i, items_left: file_info[3].to_i}, file_info[0], file_info[1],
+    Movie.new({name:'movie', price: file_info[3].to_i, items_left: file_info[4].to_i}, file_info[0], file_info[1],
               file_info[2])
   end
   def initialize(param, movie_name, director, movie_year)

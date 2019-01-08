@@ -6,6 +6,7 @@ require_relative 'lib/product_collection'
 # movie.movie_year = '2001'
 # puts movie
 #
+=begin
  book = Book.new({name:'book', price:200, items_left: 2}, 'Alone' , 'fantasy', 'July')
 # book.book_type = 'History'
 # book.update(name:'new book', price:150)
@@ -19,7 +20,30 @@ book = Book.from_file("#{__dir__}/data/books/1.txt")
 
 movie = Movie.from_file("#{__dir__}/data/movies/1.txt")
 #puts movie
+=end
 
-product_collection = ProductCollection.new
-puts product_collection.to_a.inspect
-puts product_collection.sort
+#puts product_collection.sort
+
+
+
+collection = ProductCollection.new
+
+choice = nil
+total = 0
+while choice != 0 do
+ puts "Что хотите купить: "
+ collection.to_a.each_with_index do |item, index|
+  puts "#{index+1}  #{item}"
+ end
+puts "0. Выход"
+choice = gets.to_i
+
+  if choice > 0
+    item = collection.to_a[choice - 1]
+    item.items_left = item.items_left - 1
+    puts "Вы выбрали: #{item}"
+    total = total + item.price
+    puts "Всего товаро на сумму: #{total}"
+  end
+end
+
