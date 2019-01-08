@@ -1,25 +1,15 @@
-require_relative 'lib/item'
-dir_path = __dir__ + '/data/'
+require_relative 'lib/item_collection'
 
+dir_path = __dir__ + '/data/'
 file_names = Dir.glob("#{dir_path}*.txt")
 
-items = []
-file_names.each do |file_name|
+collection = ItemCollection.new(file_names)
 
-  lines = File.readlines(file_name, chomp: true)
-  items << Item.new(lines[0], lines[1], lines[2].to_i, lines[3].to_i)
-end
-
-#puts "#{items}"
 puts "Сколько градусов за окном? (можно с минусом)"
 temp = gets.to_i
-
-available_items = []
-items.each do |item|
-  available_items << item if (temp >= item.temp_min && temp <= item.temp_max)
-end
+available_items = collection.get_suitable_items(temp)
 
 puts "Предлагаем сегодня надеть: \n"
-available_items.each do |item|
+available_items.each_with_index do |item|
   puts item
 end

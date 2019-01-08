@@ -1,7 +1,7 @@
 require_relative "movie"
 
 current_path = __dir__
-movie_dir = current_path + '/movie/'
+movie_dir = current_path + '/movies/'
 #loop in the directory
 all_producers = []
 films = []
@@ -28,7 +28,7 @@ for film in films
   end
 end
 
-#display any random movie
+#display any random movies
 puts "Рекомендуем фильм: #{user_movie_wish_list.sample}"
 
 # Если мы хотим переделать эту задачу в ООП, можешь поделиться, как бы ты разбивал прогу из функционального подхода к

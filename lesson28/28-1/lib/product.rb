@@ -1,17 +1,18 @@
 class Product
-  attr_reader :price, :items_left, :name
+  attr_reader :price
 
-  def initialize(params)
-    @price = params[:price]
-    @items_left = params[:items_left]
-    @name = params[:name]
+  def initialize(param)
+    @name = param[:name]
+    @price = param[:price].to_i
+    @items_left = param[:items_left].to_i
   end
 
-  def info
-    "#{name} стоит #{price}"
+  def from_file(file_path)
+    raise NotImplementedError
   end
 
-  def to_s
-    "#{@name} #{@price} #{@items_left} "
+  def update(info)
+    @name = info[:name]
+    @price = info[:price]
   end
 end
