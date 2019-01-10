@@ -1,6 +1,6 @@
 require_relative 'lib/movie'
 
-movie = Movie.new(name: 'Leon', price: 290, amount: 4)
+movie = Movie.new(product_name: 'Leon', price: 290, amount: 4)
 puts movie.info
 
 #puts Movie.ancestors

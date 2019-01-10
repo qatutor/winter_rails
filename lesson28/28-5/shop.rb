@@ -3,9 +3,8 @@ require_relative 'lib/book'
 require_relative 'lib/product_collection'
 
 collection = ProductCollection.new("#{__dir__}")
-puts collection.to_a.class
 
-=begin
+
 items_bought = []
 choice = nil
 total = 0
@@ -38,6 +37,8 @@ items_bought.each do |item|
   puts item
 end
 puts "C Вас - #{total} руб. Спасибо за покупку!"
-=end
+
+
+
 
 

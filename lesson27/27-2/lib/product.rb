@@ -1,14 +1,14 @@
 class Product
-  attr_reader :price, :items_left, :name
+  attr_reader :price, :items_left, :product_name
 
   def initialize(params)
     @price = params[:price]
     @items_left = params[:items_left]
-    @name = params[:name]
+    @product_name = params[:product_name]
   end
 
   def info
-    "#{name} стоит #{price}"
+    "#{product_name} стоит #{price}"
   end
 
 #  def self.print_from_class

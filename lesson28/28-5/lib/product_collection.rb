@@ -18,7 +18,7 @@ class ProductCollection
       items << Movie.from_file(file_name)
     end
 
-    cd_file_names = Dir.glob("#{dir_path}/data/movies/*.txt")
+    cd_file_names = Dir.glob("#{dir_path}/data/cd/*.txt")
     cd_file_names.each do |file_name|
       items << CD.from_file(file_name)
     end
@@ -33,12 +33,15 @@ class ProductCollection
   # return array of items
   def to_a
     @items.each do |item|
-      item.to_s
+      item
     end
   end
 
-  # sort by price
+  # sort by price and items in stock
   def sort
-    to_a.sort_by {|item| item.price}
+    @items.sort_by! do |item|
+      item.price
+      item.items_left
+    end
   end
 end
