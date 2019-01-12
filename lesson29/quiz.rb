@@ -27,8 +27,12 @@ quiz_data.questions.each do |question_num, text|
   puts "Выберите номер варианта:"
   choice = gets.to_i
 
-  puts
-  score +=1 if quiz_data.is_answer_correct?(question_num, choice)
+  if quiz_data.is_answer_correct?(question_num, choice)
+    score +=1
+  else
+    print "Правильный вариант:"
+    puts "#{quiz_data.correct_answer(question_num)}"
+  end
 end
 
 puts "У вас правильных ответов #{score} из #{quiz_data.questions.size}"

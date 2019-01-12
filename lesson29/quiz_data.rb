@@ -42,4 +42,9 @@ class QuizData
     correct_answers[question_num].keys.first == variant_num
   end
 
+  def correct_answer(question_num)
+    variant_num = correct_answers[question_num].keys.first
+    correct_answers[question_num][variant_num].to_s
+  end
+
 end
