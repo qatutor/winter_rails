@@ -1,33 +1,41 @@
 require "rexml/document"
 
 class QuizData
-  attr_accessor :questions_text, :questions_variants, :questions_time, :right_answer
+  attr_accessor :questions, :variants, :questions_time, :correct_answers
 
   def initialize(doc_xml)
-    index = 0
-    @questions_text = Hash.new
+    question_num = 0
+    @questions = Hash.new
     @questions_time = Hash.new
-    @questions_variants = Hash.new
-    doc_xml.elements.each("questions/question") do |question_tag|
-      index +=1
-      #get all questions time
-      @questions_time.store(index, question_tag.attributes["minutes"].to_i)
+    @variants = Hash.new
+    @correct_answers = Hash.new
 
-        # get all questions text
+    doc_xml.elements.each("questions/question") do |question_tag|
+      question_num +=1 # question number starts from 1.
+
+      # store all questions time
+      @questions_time.store(question_num, question_tag.attributes["minutes"].to_i) # { question_num => time}
+
+        # store all questions text
         question_tag.elements.each("text") do |text_tag|
-          @questions_text.store(index, text_tag.text)
+          @questions.store(question_num, text_tag.text) # { question_num => question}
         end
 
         question_variants = Hash.new
-        index_variants = 0
+        variant_num = 0
+
         question_tag.elements.each("variants/variant") do |variant_tag|
-          index_variants +=1
-          question_variants.store(index_variants, variant_tag.text)
+          variant_num +=1 # variants start from 1 when displayed on the screen for each question.
+          question_variants.store(variant_num, variant_tag.text) # {variant_num => variant}
+
+          #store correct answers
+          @correct_answers.store(question_num, {variant_num => variant_tag.text}) if variant_tag.attributes["right"] ==
+              "true"
         end
-          @questions_variants.store(index, question_variants)
+
+        # store all variants for a question
+        @variants.store(question_num, question_variants) # {question_num => {variant_num => variant}}
     end
-    puts @questions_text
-    puts @questions_time
-    puts @questions_variants
   end
+
 end
