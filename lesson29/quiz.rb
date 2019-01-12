@@ -17,6 +17,7 @@ puts "Готовы? 1 - Да, 2 - Нет"
 
 exit if !gets.to_i == 1 # run program only enters 1 otherwise doesn't make sense to execute
 
+score = 0
 quiz_data.questions.each do |question_num, text|
   puts "#{question_num} - #{text}"
     puts "Варианты ответов:"
@@ -25,6 +26,9 @@ quiz_data.questions.each do |question_num, text|
     end
   puts "Выберите номер варианта:"
   choice = gets.to_i
+
+  puts
+  score +=1 if quiz_data.is_answer_correct?(question_num, choice)
 end
 
-
+puts "У вас правильных ответов #{score} из #{quiz_data.questions.size}"

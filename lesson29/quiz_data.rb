@@ -38,4 +38,8 @@ class QuizData
     end
   end
 
+  def is_answer_correct?(question_num, variant_num)
+    correct_answers[question_num].keys.first == variant_num
+  end
+
 end
