@@ -5,8 +5,13 @@ class Book < Product
 
   def self.from_file(file_path)
     file_info = File.readlines(file_path, chomp: true)
-    Book.new({product_name: 'book', price: file_info[3].to_i, items_left: file_info[4].to_i, book_name: file_info[0],
-              book_type: file_info[1], author: file_info[2]})
+    Book.new({ product_name: 'book',
+                     price: file_info[3].to_i,
+                     items_left: file_info[4].to_i,
+                     book_name: file_info[0],
+                     book_type: file_info[1],
+                     author: file_info[2]
+                   })
   end
 
   def initialize(param)

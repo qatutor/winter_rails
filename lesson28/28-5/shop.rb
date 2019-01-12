@@ -2,8 +2,7 @@ require_relative 'lib/movie'
 require_relative 'lib/book'
 require_relative 'lib/product_collection'
 
-collection = ProductCollection.new("#{__dir__}")
-
+collection = ProductCollection.from_dir("#{__dir__}/data/")
 
 items_bought = []
 choice = nil
@@ -37,8 +36,4 @@ items_bought.each do |item|
   puts item
 end
 puts "C Вас - #{total} руб. Спасибо за покупку!"
-
-
-
-
 

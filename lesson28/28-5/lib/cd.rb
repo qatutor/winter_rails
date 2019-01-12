@@ -3,8 +3,14 @@ class CD < Product
 
   def self.from_file(file_path)
     file_info = File.readlines(file_path, chomp: true)
-    CD.new({product_name: 'cd', price: file_info[4].to_i, items_left: file_info[5].to_i, album_name: file_info[0],
-            singer: file_info[1], music_type: file_info[2], year: file_info[3]})
+    CD.new({ product_name: 'cd',
+                   price: file_info[4].to_i,
+                   items_left: file_info[5].to_i,
+                   album_name: file_info[0],
+                   singer: file_info[1],
+                   music_type: file_info[2],
+                   year: file_info[3]
+                 })
   end
 
   def initialize(param)
@@ -26,5 +32,3 @@ class CD < Product
     super(" #{@album_name} #{@singer} #{@music_type} #{@year}")
   end
 end
-
-

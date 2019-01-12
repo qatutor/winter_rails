@@ -26,6 +26,6 @@ class Product
   end
 
   def to_s(additional_attributes)
-    "#{@product_name} #{additional_attributes} #{@price} #{@items_left}"
+    "#{@product_name} #{additional_attributes} #{@price} (осталось #{@items_left})"
   end
 end
