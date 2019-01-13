@@ -21,14 +21,11 @@ class Movie < Product
     @movie_year = param[:movie_year]
   end
 
-  def movie_year=(movie_year)
-    @movie_year = movie_year
-  end
-
-  def update(movie_name, director, movie_year)
-    @movie_name = movie_name
-    @director = director
-    @movie_year = movie_year
+  def update(param)
+    super(param)
+    @movie_name = param[:movie_name]
+    @director = param[:director]
+    @movie_year = param[:movie_year]
   end
 
   def to_s

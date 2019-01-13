@@ -1,4 +1,5 @@
 require 'rexml/document'
+require 'timeout'
 require_relative 'quiz_data'
 
 file_name = "#{__dir__}/questions_with_answers.xml"
@@ -7,32 +8,53 @@ abort puts "File does not exist." unless File.exist?(file_name)
 
 file = File.new(file_name)
 doc = REXML::Document.new(file)
-quiz_data = QuizData.new(doc)
+quiz_data = QuizData.parser(doc)
 
-puts "Приветствую, Вы принимаете участие в Викторине!"
-puts "На каждый вопрос дается ограниченное количество времени, будьте внимательны."
-puts "На экране появится вопрос и варинаты ответов. Введите с клавиатуры номер варианта."
-puts "После завершения ответов на вопросы, Вы увидете свой результат."
-puts "Готовы? 1 - Да, 2 - Нет"
+def greeting
+  puts "Приветствую, Вы принимаете участие в Викторине!"
+  puts "На каждый вопрос дается ограниченное количество времени, будьте внимательны."
+  puts "На экране появится вопрос и варинаты ответов. Введите с клавиатуры номер варианта."
+  puts "После завершения ответов на вопросы, Вы увидете свой результат."
+  puts "Готовы? 1 - Да, 2 - Нет"
+end
 
-exit if !gets.to_i == 1 # run program only enters 1 otherwise doesn't make sense to execute
+greeting
+exit if gets.to_i != 1 # run program only enters 1 otherwise doesn't make sense to execute
 
-score = 0
+def question_timer(minutes)
+  choice = :blank_answer
+  Timeout::timeout(minutes * 10) do
+    puts "Времени на ответ в минутах: #{minutes}"
+    puts "Выберите номер: "
+    choice = STDIN.gets.to_i
+  end
+  rescue Timeout::Error
+  choice
+end
+
 quiz_data.questions.each do |question_num, text|
+  #print question
   puts "#{question_num} - #{text}"
-    puts "Варианты ответов:"
-    quiz_data.variants[question_num].each do |variant_num, text|
-      puts "#{variant_num} - #{text}"
-    end
-  puts "Выберите номер варианта:"
-  choice = gets.to_i
+  puts "Варианты ответов:"
 
-  if quiz_data.is_answer_correct?(question_num, choice)
-    score +=1
+  #print variants
+  quiz_data.variants[question_num].each do |variant_num, text|
+    puts "#{variant_num} - #{text}"
+  end
+
+  user_choice = question_timer(quiz_data.questions_time[question_num])
+
+  if user_choice != :blank_answer
+    if quiz_data.is_answer_correct?(question_num, user_choice)
+      quiz_data.score += 1
+      puts "Это правильный ответ."
+    else
+      puts "Правильный ответ: #{quiz_data.correct_answer(question_num)}"
+    end
   else
-    print "Правильный вариант:"
-    puts "#{quiz_data.correct_answer(question_num)}"
+    puts "Время вышло"
+    puts "Правильный ответ: #{quiz_data.correct_answer(question_num)}"
   end
 end
 
-puts "У вас правильных ответов #{score} из #{quiz_data.questions.size}"
+puts "У вас правильных ответов #{quiz_data.score} из #{quiz_data.questions.size}"

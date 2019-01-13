@@ -22,6 +22,7 @@ class Book < Product
   end
 
   def update(param)
+    super(param)
     @book_name = param[:book_name]
     @book_type = param[:book_type]
     @author = param[:author]

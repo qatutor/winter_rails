@@ -22,6 +22,7 @@ class CD < Product
   end
 
   def update(param)
+    super(param)
     @album_name = param[:album_name]
     @singer = param[:singer]
     @music_type = param[:music_type]
