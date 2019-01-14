@@ -32,5 +32,31 @@ rescue REXML::ParseException => e
   abort e.message
 end
 
+wish_completed = Hash.new
+wish_in_process = Hash.new
+doc.elements.each("wishes/wish") do |element|
+  date = Date.parse(element.attributes["date"])
+  if Date.today > date
+
+    wish_completed.store(date, element.text.strip)
+  else
+    wish_in_process.store(date, element.text.strip)
+  end
+end
+
+puts "Your completed wishes"
+puts "***-----****"
+wish_completed.each_key do |key|
+  puts "#{key} #{wish_completed[key]}"
+end
+
+puts
+
+puts "Your wishes in progress"
+puts "***-----****"
+wish_in_process.each_key do |key|
+  puts "#{key} #{wish_in_process[key]}"
+end
+
 
 
