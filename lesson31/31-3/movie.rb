@@ -1,4 +1,5 @@
 class Movie
+  attr_accessor :movie_name, :producer, :year
 
 def initialize(file_path)
   file_text = File.readlines(file_path)
@@ -7,15 +8,7 @@ def initialize(file_path)
   @year = file_text[2].chomp
 end
 
-def movie_name
-  @movie_name
-end
-
-def producer
-  @producer
-end
-
-def year
-  @year
-end
+  def producer?(name)
+    name.downcase == @producer.downcase
+  end
 end

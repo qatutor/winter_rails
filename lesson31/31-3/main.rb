@@ -1,14 +1,9 @@
 require_relative "movie"
+require_relative 'movie_collection'
 
 movie_dir = "#{__dir__}/movie/*.txt"
-all_producers = []
-films = []
-
-Dir.glob(movie_dir).each do |file_name|
-  movie = Movie.new(file_name)
-  all_producers << movie.producer
-  films << movie
-end
+movie_collection = MovieCollection.new(movie_dir)
+all_producers = movie_collection.get_producer_list
 
 puts "Выберите режиссера: "
 for producer in all_producers.uniq
@@ -17,12 +12,4 @@ end
 #ask user for input
 user_choice = STDIN.gets.chomp
 
-user_movie_wish_list = []
-for film in films
-  if user_choice.downcase == film.producer.downcase
-    user_movie_wish_list << film.movie_name
-  end
-end
-
-#display any random movies
-puts "Рекомендуем фильм: #{user_movie_wish_list.sample}"
+puts "Рекомендуем фильм: #{movie_collection.get_wish_movie_list(user_choice).sample}"
