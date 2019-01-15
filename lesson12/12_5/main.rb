@@ -15,7 +15,7 @@ credit_history = gets.chomp
 puts "запрашиваемая сумма: "
 credit = gets.to_i
 
-application = CustomerApplication.new(age, person, income, credit_history, credit)
+application = Application.new(age, person, income, credit_history, credit)
 application.calculate_score
 
 if application.approved?

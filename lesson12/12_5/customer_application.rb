@@ -1,4 +1,4 @@
-class CustomerApplication
+class Application
   def initialize(age, person, income, credit_history, credit)
     @age = age
     @person = person
