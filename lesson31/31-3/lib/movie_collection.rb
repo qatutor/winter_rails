@@ -1,5 +1,6 @@
 class MovieCollection
   attr_accessor :movie_list, :producer_list, :movie_wish_list
+
   def initialize(path)
     @movie_list = []
     @movie_wish_list = []

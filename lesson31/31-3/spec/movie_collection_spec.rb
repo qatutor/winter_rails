@@ -1,18 +1,16 @@
 require 'rspec'
-require_relative '../movie'
+require_relative '../lib/movie_collection'
 
-describe 'Movie' do
-
-  before:all do
-    @movie= Movie.new("#{__dir__}/fixtures/01.txt")
+describe MovieCollection do
+  it 'should create instance variables' do
+    movie_collection = MovieCollection.new("#{__dir__}/fixtures/01.txt")
+    expect(movie_collection.movie_list[0]).to be_an_instance_of(Movie)
+    expect(movie_collection.movie_wish_list).to match_array ([])
+    expect(movie_collection.producer_list).to match_array([])
   end
 
-  it '#new' do
-    expect(@movie.movie_name).to eq ('Список Шиндлера')
-    expect(@movie.producer).to eq ("Стивен Спилберг")
-    expect(@movie.year).to eq ("Year 2017")
-  end
-  it '#producre?' do
-    expect(@movie.producer?('Стивен Спилберг')).to eql (true)
+  it 'should create movie wish list by producer name' do
+    movie_collection = MovieCollection.new("#{__dir__}/fixtures/*.txt")
+    expect(movie_collection.get_wish_movie_list('Роберт Земекис')).to match_array(["Назад в будущее", "Форрест Гамп"])
   end
 end
