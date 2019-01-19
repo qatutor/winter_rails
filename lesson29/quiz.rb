@@ -8,7 +8,7 @@ abort puts "File does not exist." unless File.exist?(file_name)
 
 file = File.new(file_name)
 doc = REXML::Document.new(file)
-quiz_data = QuizData.parser(doc)
+quiz_data = QuizData.new_parse_from_rexml(doc)
 
 def greeting
   puts "Приветствую, Вы принимаете участие в Викторине!"
@@ -23,7 +23,7 @@ exit if gets.to_i != 1 # run program only enters 1 otherwise doesn't make sense 
 
 def question_timer(minutes)
   choice = :blank_answer
-  Timeout::timeout(minutes * 10) do
+  Timeout::timeout(minutes * 60) do
     puts "Времени на ответ в минутах: #{minutes}"
     puts "Выберите номер: "
     choice = STDIN.gets.to_i

@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../lib/movie'
 
 describe Movie do
-  before : all do
+  before :all do
     @movie = Movie.new("#{__dir__}/fixtures/01.txt")
   end
 
