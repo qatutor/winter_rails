@@ -1,12 +1,12 @@
 require_relative "movie"
 require_relative 'movie_collection'
 
-movie_dir = "#{__dir__}/movie/*.txt"
+movie_dir = "#{__dir__}/../movie/*.txt"
 movie_collection = MovieCollection.new(movie_dir)
 all_producers = movie_collection.get_producer_list
 
 puts "Выберите режиссера: "
-for producer in all_producers.uniq
+for producer in all_producers
   puts "#{producer}"
 end
 #ask user for input

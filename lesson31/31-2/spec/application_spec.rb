@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../lib/application'
 
 describe 'Application' do
-  before:each do
+  before :each do
     @customer_appitcation = Application.new(24, "женщина",
                                             40000, 'есть', 40000)
   end
