@@ -35,7 +35,7 @@ names = {Vadim: 'Test1', Vladimir: 'Test2', Alex: 'Test3'}
 new_names = {}
 names.each do |name, last_name|
   new_names[name.to_s.reverse] = last_name.reverse!
-end
+endd
 
 new_names.each do | name, last_name|
 puts "#{name} #{last_name}"
