@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+img {
+  width: 500px;
+}
+
+.header > h1 {
+  font-family: 'Pacifico', cursive;
+}
+
+.header > h2 {
+  font-family: 'Merienda', cursive;
+  alignment: center;
+}

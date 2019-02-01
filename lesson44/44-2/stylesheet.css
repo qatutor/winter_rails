@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: Arial Rounded MT Bold, Helvetica Rounded, Arial, sans-serif;
+}
+
+h2.title {
+  text-align: center;
+}
+
+h2.title p {
+  color: red;
+  font-family: Brush Script MT, cursive;
+  font-size: 50px;
+  margin: 10px;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 50px;
+  font-family: Brush Script MT, cursive;
+}
+
+.list > li {
+  list-style: square;
+  font-style: italic;
+}
+
+img {
+  border: 2px solid black;
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+.description p {
+  text-align: left;
+  padding: 2px 1px;
+}
+
+.feedback p {
+  text-align: left;
+  padding: 2px 1px;
+}

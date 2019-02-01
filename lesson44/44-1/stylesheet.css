@@ -1,0 +1,24 @@
+body {
+  font-family: Verdana,  sans-serif;
+}
+
+.wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.note {
+    background: gold;
+    font-family: Courier, monospace;
+    background-size: 20px;
+}
+
+.quote {
+    background: yellow;
+    font-family: Georgia, serif;
+}
+
+.author {
+    color: brown;
+    font-size:  1.1em;
+}
