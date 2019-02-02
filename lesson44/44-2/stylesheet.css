@@ -17,18 +17,7 @@ body {
   font-family: Arial Rounded MT Bold, Helvetica Rounded, Arial, sans-serif;
 }
 
-h2.title {
-  text-align: center;
-}
-
-h2.title p {
-  color: red;
-  font-family: Brush Script MT, cursive;
-  font-size: 50px;
-  margin: 10px;
-}
-
-.main-title {
+h1 {
   text-align: center;
   font-size: 50px;
   font-family: Brush Script MT, cursive;
@@ -55,3 +44,4 @@ img {
   text-align: left;
   padding: 2px 1px;
 }
+
