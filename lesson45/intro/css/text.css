@@ -1,0 +1,25 @@
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  color: #444444;
+  font-size: 16px;
+}
+
+.title-large {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.text-lead {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 30px;
+}
+
+.text-small {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 100%;
+  padding-bottom: 10px;
+}
+
+

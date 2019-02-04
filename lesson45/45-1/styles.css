@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-container {
+  font-family: “Trebuchet MS”, sans-serif;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+  padding-top: 30px;
+}
+
+.message-container {
+  margin: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1.5px;
+  height: 100px;
+}
+
+.good-container {
+  background: #2ddf5c;
+}
+
+.bad-container {
+  background: #ff1b68;
+}
+
+.normal-container {
+  background: yellow;
+}
