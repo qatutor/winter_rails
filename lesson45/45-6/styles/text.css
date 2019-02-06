@@ -1,11 +1,11 @@
 body {
-  font-family: Verdana;
+  font-family: 'Anton', sans-serif;
 }
 
 .big-title {
   font-family: 'Indie Flower', cursive;
   color: white;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   font-style: italic;
   text-align: center;
@@ -13,9 +13,14 @@ body {
 }
 
 .middle-title {
-  font-family: 'Indie Flower', cursive;
   color: white;
   font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.text {
+  font-size: 18px;
   text-align: center;
   padding-top: 10px;
 }

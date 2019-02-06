@@ -1,0 +1,22 @@
+.button {
+  display: inline-block;
+  border-radius: 20px;
+  font-size: 28px;
+  background-color: #33C3F0;
+  border-style: solid;
+  text-decoration: none;
+  padding: 15px 30px;
+  color: black;
+  font-weight: bold;
+}
+
+.button-background {
+  display: inline-block;
+  border-radius: 20px;
+  background-color: #33C3F0;
+  text-decoration: none;
+  padding: 5px 5px;
+  color: black;
+  font-weight: bold;
+}
+

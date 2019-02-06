@@ -1,0 +1,24 @@
+.page-center {
+  margin-top: 30px;
+}
+
+.page-center .column-1-3 {
+  float: left;
+  width: 32%;
+  height: 400px;
+  margin-left: 5px;
+  margin-right: auto;
+  background-image: none;
+  border-style: solid;
+  border-color: #888888;
+  border-radius: 10px;
+}
+
+.page-center .middle-title {
+  font-family: 'Indie Flower', cursive;
+  color: #555555;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
