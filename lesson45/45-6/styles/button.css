@@ -6,7 +6,7 @@
   border-style: solid;
   text-decoration: none;
   padding: 15px 30px;
-  color: black;
+  color: #333333;
   font-weight: bold;
 }
 
@@ -16,7 +16,5 @@
   background-color: #33C3F0;
   text-decoration: none;
   padding: 5px 5px;
-  color: black;
   font-weight: bold;
 }
-
