@@ -1,0 +1,21 @@
+body {
+  font-family: Verdana;
+}
+
+.big-title {
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.middle-title {
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
