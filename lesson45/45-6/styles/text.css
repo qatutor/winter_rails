@@ -1,32 +1,39 @@
-body {
-  font-family: 'Anton', sans-serif;
-}
-
 .big-title {
   font-family: 'Indie Flower', cursive;
-  color: white;
   font-size: 50px;
   font-weight: bold;
   font-style: italic;
-  text-align: center;
-  padding-top: 50px;
 }
 
 .middle-title {
-  color: white;
   font-size: 30px;
-  text-align: center;
-  padding-top: 10px;
+}
+
+.reviews .middle-title {
+  margin-top: 20px;
+  color: black;
+}
+
+.contacts .middle-title {
+  margin-top: 20px;
+  color: black;
+}
+
+.page-center .middle-title {
+  color: black;
+  margin: 30px auto;
 }
 
 .text {
   font-size: 18px;
   text-align: center;
   padding-top: 10px;
+  color: black;
 }
 
 .text-review {
   font-size: 18px;
   text-align: left;
   padding-top: 10px;
+  color: black;
 }

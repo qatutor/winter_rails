@@ -4,12 +4,12 @@ body {
   background-color: ghostwhite;
 }
 
-img {
+.main-picture {
   width: 500px;
   border: thick double black;
 }
 
-.header > h1 {
+.title-big {
   font-size: 25px;
   color: red;
   font-family: 'Pacifico', cursive;
@@ -17,7 +17,7 @@ img {
   margin: 0;
 }
 
-.header > h2 {
+.title-medium {
   font-size: 25px;
   font-family: 'Pacifico', cursive;
   text-align: center;
@@ -29,14 +29,7 @@ img {
   font-family: 'Noto Serif TC', serif;
 }
 
-li {
-  list-style: square;
-  font-style: italic;
-  letter-spacing: 1px;
-  font-size: 17px;
-}
-
-ol {
+.directions > ol {
   padding: 0px 18px 0px 18px;
   margin: 0;
 }
@@ -47,25 +40,25 @@ ol {
   list-style-type: decimal;
 }
 
-table {
+.table-info {
   border-collapse: collapse;
 }
 
-th {
+.table-column-title {
   text-align: center;
   font-style: italic;
   padding: 5px;
   border: 0.5px solid black;
 }
 
-td {
+.table-data {
   border: 0.5px solid black;
   letter-spacing: 1px;
   padding: 5px;
   text-align: center;
 }
 
-#wish {
+.nice-message {
   font-family: 'Permanent Marker', cursive;
   padding: 15px;
   text-align: center;
