@@ -1,0 +1,29 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  width: 940px;
+  margin: 0 50px;
+}
+
+.column-50 {
+  float: left;
+  width: 20%;
+}
+
+.column-100 {
+  float: left;
+  width: 100%;
+}
+
+.content:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+.button {
+  margin-top: 10px;
+}

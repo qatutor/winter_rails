@@ -1,0 +1,92 @@
+.content {
+  width: 960px;
+  margin: 60px auto;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.column-1-3 {
+  float: left;
+  width: 33.33%;
+}
+
+.column-1-2 {
+  float: left;
+  width: 50%;
+}
+
+.column-1-1 {
+  float: left;
+  width: 100%;
+}
+
+.menu {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.row:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+.intro {
+  border-style: solid;
+  border-color: #bbbbbb;
+  border-radius: 20%;
+  padding-top: 60px;
+  height: 300px;
+  background-color: #0FA0CE;
+}
+
+.benefits {
+  margin-top: 50px;
+}
+
+.benefit {
+  box-sizing: border-box;
+}
+
+.oval {
+  width: 200px;
+  height: 100px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.oval .middle-title {
+  padding-top: 25px;
+}
+
+.image-food {
+  border-style: solid;
+  border-color: #555555;
+  border-width: thick;
+}
+
+.page-footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  background-color: #0FA0CE;
+  text-align: center;
+}
+
+.page-header{
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  height: 60px;
+  background-color: floralwhite;
+  opacity: 0.5;
+}
+
+.page-header a:hover {
+  background-color: #0FA0CE;
+}

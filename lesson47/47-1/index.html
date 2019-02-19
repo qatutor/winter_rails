@@ -1,0 +1,39 @@
+<!DOCUMENT html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Forms</title>
+  <link rel="stylesheet" href="styles/stylesheet.css">
+</head>
+<body>
+<div class="content">
+  <h1>Поиск видео</h1>
+  <div class="column-50">
+    <form action="https://www.youtube.com/results?", method="get">
+      <div class="column-100">
+        <label for="title">YouTube</label>
+      </div>
+      <div>
+        <input type="text" name="search_query" required>
+      </div>
+      <div>
+        <input type="submit" class="button" value="Искать">
+      </div>
+    </form>
+  </div>
+  <div class="column-50">
+    <form action="https://www.vimeo.com/search?", method="get">
+      <div class="column-100">
+        <label for="title">Vimeo</label>
+      </div>
+      <div class="column-100">
+        <input type="text" name="q" required>
+      </div>
+      <div class="column-100">
+        <input type="submit" class="button" value="Искать">
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
